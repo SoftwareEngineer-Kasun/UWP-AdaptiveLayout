@@ -1,76 +1,63 @@
-<Grid Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Grid x:Name="GRID1">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF363465" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="Wide">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="800" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="First.(Grid.Row)" Value="0" />
-                        <Setter Target="First.(Grid.Column)" Value="0" />
-                        <Setter Target="Second.(Grid.Row)" Value="0" />
-                        <Setter Target="Second.(Grid.Column)" Value="1" />
-                        <Setter Target="Third.(Grid.Row)" Value="0" />
-                        <Setter Target="Third.(Grid.Column)" Value="2" />
-
-                        <Setter Target="First.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="Second.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="Third.(Grid.ColumnSpan)" Value="1" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Narrow">
+            <VisualStateGroup x:Name="ScreenRez">
+                <VisualState x:Name="Phone">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="First.(Grid.Row)" Value="0" />
-                        <Setter Target="First.(Grid.Column)" Value="0" />
-                        <Setter Target="Second.(Grid.Row)" Value="1" />
-                        <Setter Target="Second.(Grid.Column)" Value="0" />
-                        <Setter Target="Third.(Grid.Row)" Value="2" />
-                        <Setter Target="Third.(Grid.Column)" Value="0" />
+                        <Setter Target="GRID1.RowDefinitions[0].Height" Value="150"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1280" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
 
-                        <Setter Target="First.(Grid.ColumnSpan)" Value="3" />
-                        <Setter Target="Second.(Grid.ColumnSpan)" Value="3" />
-                        <Setter Target="Third.(Grid.ColumnSpan)" Value="3" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="1">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
 
-                <StackPanel Name="First" Margin="20,20,0,0">
-                    <Image Source="Assets/Tibbles.jpg" HorizontalAlignment="Left" />
-                    <TextBlock>This is some information about Mr. Tibbles.</TextBlock>
-                </StackPanel>
-                <StackPanel Name="Second" Grid.Row="1" Margin="20,20,0,0">
-                    <TextBlock TextWrapping="Wrap">
-                       
-                    </TextBlock>
-                </StackPanel>
-                <StackPanel Name="Third" Grid.Row="2" Margin="20,20,0,0">
-                    <TextBlock TextWrapping="Wrap">
-                       
-                    </TextBlock>
-                </StackPanel>
+        <StackPanel Grid.Row="0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="1" Grid.ColumnSpan="3">
+            <Image Margin="20,70,20,20" Height="77" Width="105" Source="../Assets/LOGO.jpg">
+            </Image>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.RowSpan="1" Grid.ColumnSpan="3" >
+            <Grid RowSpacing="60" Margin="20,100,20,20" HorizontalAlignment="Center" Width="274" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition  Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0"  PlaceholderText="Email"></TextBox>
+                <PasswordBox Grid.Row="1" PlaceholderText="Password"></PasswordBox>
             </Grid>
-        </ScrollViewer>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="1" Grid.ColumnSpan="3">
+            <Grid Margin="20,50,20,20" HorizontalAlignment="Center" Width="274" Height="54">
+                <Button Content="Login" Height="33" Width="274" FontSize="16" FontWeight="Bold" Background="{x:Null}" Foreground="White" HorizontalAlignment="Center">
+                    <Button.BorderBrush>
+                        <AcrylicBrush/>
+                    </Button.BorderBrush>
+                </Button>
+            </Grid>
+        </StackPanel>
     </Grid>
-</Page>
 
 FONTFAMLIKY="SEGOE MDL2 ASSETS"
